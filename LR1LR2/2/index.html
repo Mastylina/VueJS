@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <title>VueJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <div class="border-bottom bg-primary text-white">
+      <div class="container">
+        My resume ♥
+      </div>
+    </div>
+  </head>
+  <body>
+    <form>
+      <div class="container">
+        <div id = "computed_props" class="row">
+          <div  class ="col-sm">
+            <div class="mb-3">
+              <label for="formProfession" class="form-label">Профессия</label>
+              <input class="form-control" type="profession" id="formprofession" v-model = "information_profession">
+            </div>
+            <div class="mb-3">
+              <label for="formCity" class="form-label">Город</label>
+              <input class="form-control" type="city" id="formcity" v-model = "information_city">
+            </div>
+            <div class="mb-3"> 
+              <label for="formFile" class="form-label">Фотография</label>
+              <input class="form-control" type="foto" id="formFile" v-model = "information_link" >
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">ФИО</label>
+              <input type="full_name" v-model = "information_fullname" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Номер телефона</label>
+              <input type = "text" class = "form-control bfh-phone" value="" placeholder="+7" inputmode="tel" v-model = "information_phone" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email адрес</label>
+              <input type="email" v-model = "information_email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+              <div class="form-group">
+                <label for="inputDate">Дата рождения</label>
+                <input type="date" class="form-control" v-model = "information_date_of_birth">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="formEducation" class="form-label">Образование</label>
+              <input type="education" v-model = "information_education" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="formEducation" class="form-label">Желаемая зарплата</label>
+              <input type="education" v-model = "information_desired_salary" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="formEducation" class="form-label">Ключевые навыки</label>
+              <textarea type="education" v-model = "information_key_skills" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="formEducation" class="form-label">О себе</label>
+              <textarea type="education" v-model = "information_about" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="col-sm">
+            <h5>Профессия {{profession}}</h5>
+            <h5>Город {{city}}</h5>
+            <img src=https://cdn.pixabay.com/photo/2018/03/14/18/29/head-3225946_1280.png class="img-fluid img_size"  alt="Responsive image">
+            <h5>ФИО {{fullname}}</h5>
+            <h5>Номер телефона {{phone}}</h5>
+            <h5>Адрес электронной почты {{email}}</h5>
+            <h5>Дата рождения {{date_of_birth}}</h5>
+            <h5>Образование {{education}}</h5>
+            <h5>Желаемая зарплата {{desired_salary}}</h5>
+            <h5>Ключевые навыки {{key_skills}}</h5>
+            <h5>О себе {{about}}</h5>
+          </div>
+        </div>
+      </div>
+    </form>
+    <script type = "text/javascript">
+      var vm = new Vue({
+        el: '#computed_props',
+        data: {
+        profession : "",
+        city : "",
+        link : "https://cdn.pixabay.com/photo/2018/03/14/18/29/head-3225946_1280.png",
+        fullname : "",
+        phone : "",
+        email : "",
+        date_of_birth :"",
+        education : "",
+        desired_salary : "",
+        key_skills : "",
+        about : ""
+      },
+        methods: {
+        },
+        computed :{
+          information_profession : {
+            get : function() {
+              return this.profession;
+          },
+            set : function(new_profession) {
+              this.profession = new_profession;
+          }
+          },
+          information_city : {
+            get : function() {
+              return this.city;
+            },
+            set : function(new_city) {
+              this.city = new_city;
+            }
+          },
+          information_link : {
+            get : function() {
+              return this.link;
+            },
+            set : function(new_link) {
+              this.link = new_link;
+            }
+          },
+          information_fullname : {
+            get : function() {
+              return this.fullname;
+            },
+            set : function(new_fullname) {
+              this.fullname = new_fullname;
+            }
+          },
+          information_phone : {
+            get : function() {
+              return this.phone;
+            },
+            set : function(new_phone) {
+              this.phone = new_phone;
+            }
+          },
+          information_email : {
+            get : function() {
+              return this.email;
+            },
+            set : function(new_email) {
+              this.email = new_email;
+            }
+          },
+            information_date_of_birth : {
+            get : function() {
+              return this.date_of_birth;
+            },
+            set : function(new_date_of_birth) {
+              this.date_of_birth = new_date_of_birth;
+            }
+          },
+          information_education : {
+            get : function() {
+              return this.education;
+            },
+            set : function(new_education) {
+              this.education = new_education;
+            }
+          },
+          information_desired_salary : {
+            get : function() {
+              return this.desired_salary;
+            },
+            set : function(new_desired_salary) {
+              this.desired_salary=new_desired_salary;
+            }
+          },
+          information_key_skills : {
+            get : function() {
+              return this.key_skills;
+            },
+            set : function(new_key_skills) {
+              this.key_skills=new_key_skills;
+            }
+          },
+          information_about : {
+            get : function() {
+              return this.about;
+            },
+            set : function(new_about) {
+              this.about = new_about;
+            }
+          }
+        }
+      });
+    </script>
+    <style scoped>
+      .img_size {
+        max-width: 250px;
+        max-height: 250px;
+        }
+    </style>
+  </body>
+</html>
